@@ -45,7 +45,28 @@ THE SOFTWARE.
     #define ABL_PRAGMA_CLANG_DIAGNOSTIC_IGNORED_UNUSED_LOCAL_TYPEDEF
   #endif
 
-  #define SUPPRESS_WARNINGS \
+  #if __has_warning("-Wexpansion-to-defined")
+    #define ABL_PRAGMA_CLANG_DIAGNOSTIC_EXPANSION_TO_DEFINED \
+    _Pragma("clang diagnostic ignored \"-Wexpansion-to-defined\"")
+  #else
+    #define ABL_PRAGMA_CLANG_DIAGNOSTIC_EXPANSION_TO_DEFINED
+  #endif
+
+  #if __has_warning("-Wundefined-func-template")
+    #define ABL_PRAGMA_CLANG_DIAGNOSTIC_UNDEFINED_FUNC_TEMPLATE \
+    _Pragma("clang diagnostic ignored \"-Wundefined-func-template\"")
+  #else
+    #define ABL_PRAGMA_CLANG_DIAGNOSTIC_UNDEFINED_FUNC_TEMPLATE
+  #endif
+
+  #if __has_warning("-Wcomma")
+    #define ABL_PRAGMA_CLANG_DIAGNOSTIC_COMMA \
+    _Pragma("clang diagnostic ignored \"-Wcomma\"")
+  #else
+    #define ABL_PRAGMA_CLANG_DIAGNOSTIC_COMMA
+  #endif
+
+  #define SUPPRESS_WARNINGS            \
     _Pragma("clang diagnostic push") \
     _Pragma("clang diagnostic ignored \"-Wconditional-uninitialized\"") \
     _Pragma("clang diagnostic ignored \"-Wconversion\"") \
@@ -77,7 +98,10 @@ THE SOFTWARE.
     _Pragma("clang diagnostic ignored \"-Wweak-vtables\"") \
     ABL_PRAGMA_CLANG_DIAGNOSTIC_IGNORED_DOUBLE_PROMOTION \
     ABL_PRAGMA_CLANG_DIAGNOSTIC_IGNORED_RESERVED_ID_MACRO \
-    ABL_PRAGMA_CLANG_DIAGNOSTIC_IGNORED_UNUSED_LOCAL_TYPEDEF
+    ABL_PRAGMA_CLANG_DIAGNOSTIC_IGNORED_UNUSED_LOCAL_TYPEDEF \
+    ABL_PRAGMA_CLANG_DIAGNOSTIC_EXPANSION_TO_DEFINED \
+    ABL_PRAGMA_CLANG_DIAGNOSTIC_UNDEFINED_FUNC_TEMPLATE \
+    ABL_PRAGMA_CLANG_DIAGNOSTIC_COMMA
 
   #define RESTORE_WARNINGS \
     _Pragma("clang diagnostic pop")
