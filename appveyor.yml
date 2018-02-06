@@ -1,6 +1,7 @@
 branches:
   only:
     - master
+    - make-appveyor-fail
 
 clone_depth: 5
 
