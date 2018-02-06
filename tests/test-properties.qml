@@ -222,6 +222,7 @@ Item {
                 compare(comp.rect.notExisting, undefined);
 
                 waitForRendering(comp);
+                waitForRendering(comp);
                 compare(missingPropertiesSpy.count, 1);
                 compare(missingPropertiesSpy.signalArguments[0][0], "propertyNotFound");
             });
