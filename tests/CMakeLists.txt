@@ -19,9 +19,9 @@
 # THE SOFTWARE.
 
 if(WIN32)
-  set(QMLTESTRUNNER_APP qmltestrunner.exe)
+  set(QMLTESTRUNNER_APP qmltestrunnerd.exe)
 else()
-  set(QMLTESTRUNNER_APP qmltestrunner)
+  set(QMLTESTRUNNER_APP qmltestrunnerd)
 endif()
 
 

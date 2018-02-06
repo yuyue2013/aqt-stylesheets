@@ -9,10 +9,10 @@ environment:
   matrix:
     - CMAKE_GENERATOR: "Visual Studio 12 2013"
       CMAKE_PREFIX_PATH: C:/Qt/5.8/msvc2013
-      CONFIGURATION: Release
+      CONFIGURATION: Debug
     - CMAKE_GENERATOR: "Visual Studio 14 2015 Win64"
       CMAKE_PREFIX_PATH: C:/Qt/5.8/msvc2015_64
-      CONFIGURATION: Release
+      CONFIGURATION: Debug
   BOOST_ROOT: c:\Libraries\boost_1_59_0
 
 install:
